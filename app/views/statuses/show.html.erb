@@ -1,15 +1,20 @@
+
 <p id="notice"><%= notice %></p>
-
+<div class="well">
 <p>
-  <b>Name:</b>
-  <%= @status.user.full_name %>
+ <h1>
+ <legend><%= @status.user.full_name %>
+   <small><%= time_ago_in_words(@status.created_at) + " ago" %></small>
+ </legend>
+ </h1>
 </p>
 
 <p>
-  <b>Content:</b>
-  <%= @status.content %>
+<large><%= @status.content %></large>
 </p>
+</div>
 
 
 <%= link_to 'Edit', edit_status_path(@status) %> |
-<%= link_to 'Back', statuses_path %>
+<%= link_to 'Back', statuses_path %> |
+ <%= link_to "Delete", @status, method: :delete, data: { confirm: "Are you sure your want to delete this status?"} %>
