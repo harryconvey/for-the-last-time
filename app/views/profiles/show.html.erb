@@ -1,11 +1,11 @@
 <div class="page-header">
   <h1><%= @user.full_name %></h1>
-  <%= link_to "Add Friend", new_user_friendship_path(friend_id: @user), class: 'btn btn-danger', id: 'add-friendship', data: { friend_id: @user.to_param } %>
-</div>
-
+  </div>
+<%= link_to "Add Friend", new_user_friendship_path(friend_id: @user), class: 'btn btn-danger', id: 'add-friendship', data: { friend_id: @user.to_param } %>
 <% if @statuses %>
   <% @statuses.each do |status| %>
-    <div class="well">
+    <div class="well"> 
+      <%= link_to image_tag(status.user.gravatar_url), profile_path(status.user) %>
       <%= status.content %>
       <hr />
       <%= link_to time_ago_in_words(status.created_at), status_path(status) %> ago
